@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
+const Listing = require("./models/listing.js");
 
 async function connectDB() {
     await mongoose.connect("mongodb://127.0.0.1:27017/thecozylookout");
@@ -22,4 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is live on port ${port}`);
+});
+
+app.get("/", (req, res) => {
+    res.send("Home Page");
 });
