@@ -14,7 +14,7 @@
                     <img src="<%= listing.image %>" alt="<%= listing.title %>" class="listing-img">
                     <p class="title"><%= listing.title %></p>
                     <p class="location"><%= listing.location %></p>
-                    <p class="price">₹<%= listing.price %></p>
+                    <p class="price">₹<%= listing.price.toLocaleString("en-in") %></p>
                 </div>
             </a>
         <% }) %>

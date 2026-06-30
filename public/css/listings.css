@@ -44,8 +44,8 @@ body {
 /* Hover Effect */
 .card:hover {
     transform: translateY(-8px);
-    border-color: #3f8cff;
-    box-shadow: 0 12px 30px rgba(63, 140, 255, 0.25);
+    border-color: white;
+    box-shadow: 0 0 15px white;
 }
 
 /* Image */

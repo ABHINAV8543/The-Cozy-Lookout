@@ -26,10 +26,15 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Home Page");
+    res.render("home.ejs");
 });
 
 app.get("/listings", async (req, res) => {
     let listingsData = await Listing.find();
     res.render("listings/index.ejs", { listingsData });
+});
+
+app.get("/listings/:id", async (req, res) => {
+    let data = await Listing.findById(req.params.id);
+    res.render("listings/details.ejs", { data });
 });
