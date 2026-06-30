@@ -28,3 +28,8 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
     res.send("Home Page");
 });
+
+app.get("/listings", async (req, res) => {
+    let listingsData = await Listing.find();
+    res.render("listings/index.ejs", { listingsData });
+});
