@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= data.title %></title>
+    <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/details.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title"> <%= data.title %> </h1>
-        <img src="<%= data.image %>" alt="" class="listing-img">
-        <p class="description"> <%= data.description %> </p>
-        <p class="location"> <%= data.location %> </p>
-        <p class="price"> ₹<%= data.price.toLocaleString("en-in") %> </p>
+    <nav class="navbar">
+        <div class="logo">
+            The Cozy Lookout
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/listings">Listings</a></li>
+            <li><a href="/listings/new">Add Listing</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="navbar-spacer"></div>
+
+    <div class="outer-container">
+        <div class="container">
+            <h1 class="title"> <%= data.title %> </h1>
+            <img src="<%= data.image %>" alt="" class="listing-img">
+            <p class="description"> <%= data.description %> </p>
+            <p class="location"> <%= data.location %> </p>
+            <p class="price"> ₹<%= data.price.toLocaleString("en-in") %> </p>
+        </div>
     </div>
 </body>
 </html>

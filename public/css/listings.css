@@ -6,11 +6,10 @@
 }
 
 body {
-    background-color: #121212;
+    background: #0d0d0d;
     color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
-    padding: 30px;
 }
 
 /* Listings Grid */
@@ -20,6 +19,7 @@ body {
     gap: 25px;
     max-width: 1400px;
     margin: auto;
+    padding: 30px;
 }
 
 /* Remove default link styling */
@@ -30,8 +30,8 @@ body {
 
 /* Card Styling */
 .card {
-    background: #1e1e1e;
-    border: 1px solid #2c2c2c;
+    background: #171717;
+    border: 1px solid #333333;
     border-radius: 18px;
     overflow: hidden;
     transition: all 0.3s;
@@ -44,8 +44,8 @@ body {
 /* Hover Effect */
 .card:hover {
     transform: translateY(-8px);
-    border-color: white;
-    box-shadow: 0 0 15px white;
+    border-color: #ff4d8d;
+    box-shadow: 0 0 30px rgba(255, 77, 141, 0.25);;
 }
 
 /* Image */

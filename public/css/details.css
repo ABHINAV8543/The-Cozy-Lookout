@@ -1,6 +1,6 @@
-body {
-    background: #0f1117;
-    color: #fff;
+.outer-container {
+    background: #0d0d0d;
+    color: #ffffff;
     font-family: "Segoe UI", sans-serif;
 
     display: flex;

@@ -16,7 +16,7 @@ connectDB()
 });
 
 app.set("view engine", "ejs");
-app.set("path", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,7 +34,16 @@ app.get("/listings", async (req, res) => {
     res.render("listings/index.ejs", { listingsData });
 });
 
+app.get("/listings/new", (req, res) => {
+    res.render("listings/new.ejs");
+});
+
 app.get("/listings/:id", async (req, res) => {
     let data = await Listing.findById(req.params.id);
     res.render("listings/details.ejs", { data });
+});
+
+app.post("/listings", async (req, res) => {
+    await Listing.insertOne(req.body);
+    res.redirect("/listings");
 });
