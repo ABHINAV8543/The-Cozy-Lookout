@@ -1,13 +1,26 @@
 <nav class="navbar">
-        <div class="logo">
-            The Cozy Lookout
-        </div>
+    <div class="logo">
+        The Cozy Lookout
+    </div>
+    
+    <div class="menu-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/listings">Listings</a></li>
-            <li><a href="/listings/new">Add Listing</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
+    <ul class="nav-links" id="sidebar">
+        <li class="close-icon" onclick="toggleSidebar()">&times;</li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="/listings/new">Add Listing</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
 </nav>
 <div class="navbar-spacer"></div>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("active");
+    }
+</script>
