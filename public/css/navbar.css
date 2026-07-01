@@ -45,23 +45,18 @@
 
 .menu-icon {
     display: none;
-    flex-direction: column;
     cursor: pointer;
-    gap: 6px;
 }
 
-.menu-icon span {
-    width: 25px;
-    height: 3px;
-    background: #ff4d8d;
-    border-radius: 3px;
-    transition: 0.3s;
+.menu-icon i {
+    color: #ff4d8d;
+    font-size: 1.8rem;
 }
 
 .close-icon {
     display: none;
     color: #ff4d8d;
-    font-size: 3rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
