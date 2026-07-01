@@ -1,17 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Segoe UI", sans-serif;
-    min-height: 100vh;
-    background: #0d0d0d;
-    color: #ffffff;
-}
-
-/* Navbar */
 .navbar {
     height: 75px;
     background: #171717;
@@ -27,11 +13,6 @@ body {
     z-index: 1000;
 }
 
-.navbar-spacer {
-    height: 75px;
-}
-
-/* Logo */
 .logo {
     color: #ff4d8d;
     font-size: 1.8rem;
@@ -39,7 +20,10 @@ body {
     letter-spacing: 1px;
 }
 
-/* Navigation Links */
+.navbar-spacer {
+    height: 75px;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -59,7 +43,6 @@ body {
     border-color: #ff4d8d;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;

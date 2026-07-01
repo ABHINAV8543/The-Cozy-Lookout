@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 async function connectDB() {
     await mongoose.connect("mongodb://127.0.0.1:27017/thecozylookout");
@@ -21,6 +22,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.engine("ejs", ejsMate);
 
 const port = 3000;
 app.listen(port, () => {
@@ -63,4 +65,8 @@ app.put("/listings/edit/:id", async (req, res) => {
 app.delete("/listings/:id", async (req, res) => {
     await Listing.findByIdAndDelete(req.params.id);
     res.redirect("/listings");
+});
+
+app.use((req, res) => {
+  res.status(404).send('404 - Page Not Found');
 });
