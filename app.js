@@ -18,7 +18,7 @@ connectDB()
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
@@ -57,5 +57,10 @@ app.get("/listings/edit/:id", async (req, res) => {
 
 app.put("/listings/edit/:id", async (req, res) => {
     await Listing.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect(`/listings/${req.params.id}`);
+});
+
+app.delete("/listings/:id", async (req, res) => {
+    await Listing.findByIdAndDelete(req.params.id);
     res.redirect("/listings");
 });
