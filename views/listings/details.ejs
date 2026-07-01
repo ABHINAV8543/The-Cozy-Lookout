@@ -24,6 +24,10 @@
 
     <div class="outer-container">
         <div class="container">
+            <div class="btn-container">
+                <a href="edit/<%= data._id %>"><button class="btn edit">Edit</button></a>
+                <a href="delete/<%= data._id %>"><button class="btn delete">Delete</button></a>
+            </div>
             <h1 class="title"> <%= data.title %> </h1>
             <img src="<%= data.image %>" alt="" class="listing-img">
             <p class="description"> <%= data.description %> </p>

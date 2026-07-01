@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const Listing = require("./models/listing.js");
+const methodOverride = require("method-override");
 
 async function connectDB() {
     await mongoose.connect("mongodb://127.0.0.1:27017/thecozylookout");
@@ -19,6 +20,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 const port = 3000;
 app.listen(port, () => {
@@ -45,5 +47,15 @@ app.get("/listings/:id", async (req, res) => {
 
 app.post("/listings", async (req, res) => {
     await Listing.insertOne(req.body);
+    res.redirect("/listings");
+});
+
+app.get("/listings/edit/:id", async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    res.render("listings/edit.ejs", { listing });
+});
+
+app.put("/listings/edit/:id", async (req, res) => {
+    await Listing.findByIdAndUpdate(req.params.id, req.body);
     res.redirect("/listings");
 });

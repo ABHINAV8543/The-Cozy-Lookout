@@ -48,3 +48,41 @@
     font-size: 2rem;
     font-weight: 700;
 }
+
+.btn-container{
+    display: flex;
+    justify-content: end;
+}
+
+.btn {
+    display: inline-block;
+    color: black;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 10px 30px 10px;
+}
+
+.btn:hover {
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.edit{
+    background-color: #ff9d00;
+}
+
+.delete{
+    background-color: #ff3232;
+}
