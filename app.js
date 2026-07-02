@@ -1,22 +1,14 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const path = require("path");
 const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
+const wrapAsync = require("./utils/wrapAsync.js");
+const connectDB = require("./config/db.js");
 
-async function connectDB() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/thecozylookout");
-}
-connectDB()
-.then(() => {
-    console.log("Connected to Database");
-})
-.catch((error) => {
-    console.log(error);
-});
+connectDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -34,39 +26,46 @@ app.get("/", (req, res) => {
     res.render("home.ejs");
 });
 
-app.get("/listings", async (req, res) => {
+app.get("/listings", wrapAsync(async (req, res) => {
     let listingsData = await Listing.find();
     res.render("listings/index.ejs", { listingsData });
-});
+}));
 
 app.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs");
 });
 
-app.get("/listings/:id", async (req, res) => {
+app.get("/listings/:id", wrapAsync(async (req, res) => {
     let data = await Listing.findById(req.params.id);
+    if (!data) {
+        throw new ExpressError(404, "Listing not found!");
+    }
     res.render("listings/details.ejs", { data });
-});
+}));
 
-app.post("/listings", async (req, res) => {
-    await Listing.insertOne(req.body);
+app.post("/listings", wrapAsync(async (req, res) => {
+    await Listing.create(req.body);
     res.redirect("/listings");
-});
+}));
 
-app.get("/listings/edit/:id", async (req, res) => {
+app.get("/listings/edit/:id", wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found!");
+    }
     res.render("listings/edit.ejs", { listing });
-});
+}));
 
-app.put("/listings/edit/:id", async (req, res) => {
-    await Listing.findByIdAndUpdate(req.params.id, req.body);
+app.put("/listings/edit/:id", wrapAsync(async (req, res) => {
+    await Listing.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
     res.redirect(`/listings/${req.params.id}`);
-});
+}));
 
-app.delete("/listings/:id", async (req, res) => {
+app.delete("/listings/:id", wrapAsync(async (req, res) => {
     await Listing.findByIdAndDelete(req.params.id);
     res.redirect("/listings");
-});
+}));
+
 
 
 
@@ -76,6 +75,12 @@ app.use((req, res, next) => {
 
 
 app.use((err, req, res, next) => {
+    if (err.name === 'CastError') {
+        err = new ExpressError(400, "Invalid Listing ID format!");
+    } else if (err.name === 'ValidationError') {
+        err = new ExpressError(400, Object.values(err.errors).map(e => e.message).join(', '));
+    }
+
     const statusCode = err.status || 500;
     const message = err.message || "Something went wrong";
     res.status(statusCode).render("layouts/error.ejs", { error: { status: statusCode, message } });
