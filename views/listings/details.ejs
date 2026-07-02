@@ -6,15 +6,15 @@
 
     <div class="outer-container">
         <div class="container">
-            <div class="btn-container">
-                <a href="edit/<%= data._id %>"><button class="btn edit">Edit</button></a>
-                <button class="btn delete" onclick="confirmDelete('<%= data._id %>')">Delete</button>
-            </div>
             <h1 class="title"> <%= data.title %> </h1>
             <img src="<%= data.image %>" alt="" class="listing-img">
             <p class="description"> <%= data.description %> </p>
             <p class="location"> <%= data.location %> </p>
             <p class="price"> ₹<%= data.price.toLocaleString("en-in") %> </p>
+            <div class="btn-container">
+                <a href="edit/<%= data._id %>"><button class="btn edit">Edit</button></a>
+                <button class="btn delete" onclick="confirmDelete('<%= data._id %>')">Delete</button>
+            </div>
         </div>
     </div>
     <script>
@@ -30,4 +30,4 @@
                 console.log("Deletion Canceled");
             }
         }
-    </script>
+    </script>

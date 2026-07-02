@@ -9,4 +9,10 @@ body {
     min-height: 100vh;
     background: #0d0d0d;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
 }

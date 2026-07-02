@@ -1,0 +1,18 @@
+<%- layout('layouts/boilerplate') %>
+<% block('title', 'Page Not Found') %>
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 50vh; text-align: center; gap: 20px;">
+    <h1 style="font-size: 5rem; color: #ff4d8d; margin: 0;">404</h1>
+    <h2 style="font-size: 2rem; color: #ffffff; font-weight: 500;">Oops! We couldn't find that page.</h2>
+    <p style="color: #9ca3af; font-size: 1.1rem;">It looks like the page you are looking for has moved or no longer exists.</p>
+    <a href="/" style="margin-top: 20px; display: inline-block; background-color: #ff4d8d; color: white; padding: 12px 30px; font-weight: 600; text-decoration: none; border-radius: 8px; transition: transform 0.2s, background-color 0.2s;">
+        Go Back Home
+    </a>
+</div>
+
+<style>
+    a:hover {
+        background-color: #ff6aa8 !important;
+        transform: translateY(-3px);
+    }
+</style>
