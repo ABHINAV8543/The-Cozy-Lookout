@@ -5,6 +5,7 @@ const path = require("path");
 const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const ExpressError = require("./utils/ExpressError.js");
 
 async function connectDB() {
     await mongoose.connect("mongodb://127.0.0.1:27017/thecozylookout");
@@ -67,6 +68,15 @@ app.delete("/listings/:id", async (req, res) => {
     res.redirect("/listings");
 });
 
-app.use((req, res) => {
-  res.status(404).render("notfound.ejs");
+
+
+app.use((req, res, next) => {
+    next(new ExpressError(404, "Page Not Found"));
+});
+
+
+app.use((err, req, res, next) => {
+    const statusCode = err.status || 500;
+    const message = err.message || "Something went wrong";
+    res.status(statusCode).render("layouts/error.ejs", { error: { status: statusCode, message } });
 });

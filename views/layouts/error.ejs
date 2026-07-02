@@ -1,0 +1,11 @@
+<%- layout('layouts/boilerplate') %>
+<% block('title', 'Error') %>
+<% block('head', '<link rel="stylesheet" href="/css/error.css">') %>
+
+<div class="error-container">
+    <h1 class="error-status"><%= error.status %></h1>
+    <h2 class="error-message"><%= error.message %></h2>
+    <a href="/" class="error-btn">
+        Go Back Home
+    </a>
+</div>
