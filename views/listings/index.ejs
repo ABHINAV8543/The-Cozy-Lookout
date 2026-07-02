@@ -3,7 +3,8 @@
 <% block('title', 'Listing') %>
 <% block('head', '<link rel="stylesheet" href="/css/listings.css">') %>
 
-<body>
+
+    <h1 class="listings-heading">All Listings</h1>
     <div class="listings-container">
         <% listingsData.forEach((listing) => { %>
             <a href="/listings/<%= listing._id %>">
@@ -15,5 +16,4 @@
                 </div>
             </a>
         <% }) %>
-    </div>
-</body>
+    </div>
