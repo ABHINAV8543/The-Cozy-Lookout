@@ -6,7 +6,7 @@
     <div class="form-container">
         <h1>Edit Listing</h1>
 
-        <form action="/listings/edit/<%= listing._id %>?_method=PUT" method="POST" class="listing-form">
+        <form action="/listings/edit/<%= listing._id %>?_method=PUT" method="POST" class="listing-form needs-validation" novalidate>
 
             <div class="input-group">
                 <label for="title">Title</label>
@@ -17,6 +17,7 @@
                     value="<%= listing.title %>"
                     required
                 >
+                <div class="invalid-feedback">Please enter a valid title.</div>
             </div>
 
             <div class="input-group">
@@ -28,6 +29,7 @@
                     value="<%= listing.image %>"
                     required
                 >
+                <div class="invalid-feedback">Please provide an image URL.</div>
             </div>
 
             <div class="input-group">
@@ -38,6 +40,7 @@
                     rows="5"
                     required
                 ><%= listing.description %></textarea>
+                <div class="invalid-feedback">Please enter a description.</div>
             </div>
 
             <div class="input-group">
@@ -49,6 +52,7 @@
                     value="<%= listing.location %>"
                     required
                 >
+                <div class="invalid-feedback">Please provide a valid location.</div>
             </div>
 
             <div class="input-group">
@@ -60,6 +64,7 @@
                     value="<%= listing.country %>"
                     required
                 >
+                <div class="invalid-feedback">Please provide a country name.</div>
             </div>
 
             <div class="input-group">
@@ -69,8 +74,10 @@
                     id="price"
                     name="price"
                     value="<%= listing.price %>"
+                    min="1"
                     required
                 >
+                <div class="invalid-feedback">Please enter a valid price.</div>
             </div>
 
             <button type="submit" class="submit-btn">

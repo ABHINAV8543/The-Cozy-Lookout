@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const connectDB = require("./config/db.js");
+const { validateListing } = require("./utils/middleware.js");
 
 connectDB();
 
@@ -43,7 +44,7 @@ app.get("/listings/:id", wrapAsync(async (req, res) => {
     res.render("listings/details.ejs", { data });
 }));
 
-app.post("/listings", wrapAsync(async (req, res) => {
+app.post("/listings", validateListing, wrapAsync(async (req, res) => {
     await Listing.create(req.body);
     res.redirect("/listings");
 }));
@@ -56,7 +57,7 @@ app.get("/listings/edit/:id", wrapAsync(async (req, res) => {
     res.render("listings/edit.ejs", { listing });
 }));
 
-app.put("/listings/edit/:id", wrapAsync(async (req, res) => {
+app.put("/listings/edit/:id", validateListing, wrapAsync(async (req, res) => {
     await Listing.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
     res.redirect(`/listings/${req.params.id}`);
 }));
