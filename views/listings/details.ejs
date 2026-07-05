@@ -17,6 +17,44 @@
             </div>
         </div>
     </div>
+
+    <!-- Reviews Section -->
+    <div class="outer-container pt-0">
+        <div class="container reviews-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #333333; padding-bottom: 10px;">
+                <h2 class="review-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">All Reviews</h2>
+                <a href="/listings/<%= data._id %>/reviews/new" class="add-review-btn">Add a Review</a>
+            </div>
+
+    <% if(reviews.length > 0) { %>
+            <div class="reviews-list">
+                <% for(let review of reviews) { %>
+                    <div class="review-card">
+                        <div class="review-rating-display">
+                            <% for(let i=1; i<=5; i++) { %>
+                                <% if(i <= review.rating) { %>
+                                    <i class="fa-solid fa-star gold-star"></i>
+                                <% } else { %>
+                                    <i class="fa-regular fa-star"></i>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <p class="review-comment"><%= review.comment %></p>
+                        <div class="review-actions">
+                            <a href="/listings/<%= data._id %>/reviews/<%= review._id %>/edit" class="review-btn review-edit-btn" style="text-decoration: none;">Edit</a>
+                            <form method="POST" action="/listings/<%= data._id %>/reviews/<%= review._id %>?_method=DELETE" class="d-inline">
+                                <button type="submit" class="review-btn review-delete-btn">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+    <% } else { %>
+            <p style="color: #cccccc;">No reviews yet. Be the first to leave one!</p>
+    <% } %>
+        </div>
+    </div>
+
     <script>
         async function confirmDelete(id){
             if(confirm("Do you really want to delete this listing?")){

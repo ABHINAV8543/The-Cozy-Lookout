@@ -1,0 +1,39 @@
+<%- layout('layouts/boilerplate') %>
+
+<% block('title', review ? 'Edit Review' : 'Add a Review') %>
+<% block('head', '<link rel="stylesheet" href="/css/details.css">') %>
+
+<div class="outer-container pt-0 mt-5" style="margin-top: 40px;">
+    <div class="container review-form-container">
+        <h2 class="review-title"><%= review ? 'Edit Your Review' : 'Leave a Review' %></h2>
+        
+        <% let actionUrl = review ? `/listings/${listing._id}/reviews/${review._id}?_method=PUT` : `/listings/${listing._id}/reviews`; %>
+        
+        <form action="<%= actionUrl %>" method="POST" class="needs-validation" novalidate>
+            
+            <div class="input-group rating-group">
+                <label>Rating</label>
+                <div class="star-rating">
+                    <% let currentRating = review ? review.rating : 0; %>
+                    <input type="radio" id="star5" name="rating" value="5" required <%= currentRating === 5 ? 'checked' : '' %> /><label for="star5" title="5 stars"><i class="fa-solid fa-star"></i></label>
+                    <input type="radio" id="star4" name="rating" value="4" required <%= currentRating === 4 ? 'checked' : '' %> /><label for="star4" title="4 stars"><i class="fa-solid fa-star"></i></label>
+                    <input type="radio" id="star3" name="rating" value="3" required <%= currentRating === 3 ? 'checked' : '' %> /><label for="star3" title="3 stars"><i class="fa-solid fa-star"></i></label>
+                    <input type="radio" id="star2" name="rating" value="2" required <%= currentRating === 2 ? 'checked' : '' %> /><label for="star2" title="2 stars"><i class="fa-solid fa-star"></i></label>
+                    <input type="radio" id="star1" name="rating" value="1" required <%= currentRating === 1 ? 'checked' : '' %> /><label for="star1" title="1 star"><i class="fa-solid fa-star"></i></label>
+                </div>
+                <div class="invalid-feedback">Please select a rating.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" rows="4" placeholder="Share your experience..." required><%= review ? review.comment : '' %></textarea>
+                <div class="invalid-feedback">Please add some comments for your review.</div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button class="submit-btn" type="submit"><%= review ? 'Update Review' : 'Submit Review' %></button>
+                <a href="/listings/<%= listing._id %>" class="btn" style="margin: 10px 0 0 0; padding: 12px 20px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

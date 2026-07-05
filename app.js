@@ -7,7 +7,8 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const connectDB = require("./config/db.js");
-const { validateListing } = require("./utils/middleware.js");
+const Review = require("./models/review.js");
+const { validateListing, validateReview } = require("./utils/middleware.js");
 
 connectDB();
 
@@ -41,7 +42,8 @@ app.get("/listings/:id", wrapAsync(async (req, res) => {
     if (!data) {
         throw new ExpressError(404, "Listing not found!");
     }
-    res.render("listings/details.ejs", { data });
+    let reviews = await Review.find({ _id: { $in: data.reviews } });
+    res.render("listings/details.ejs", { data, reviews });
 }));
 
 app.post("/listings", validateListing, wrapAsync(async (req, res) => {
@@ -67,7 +69,43 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     res.redirect("/listings");
 }));
 
+app.get("/listings/:id/reviews/new", wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found!");
+    }
+    res.render("reviews/form.ejs", { listing, review: null });
+}));
 
+app.post("/listings/:id/reviews", validateReview, wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    let review = await Review.create(req.body);
+    listing.reviews.push(review);
+    
+    await listing.save(); // Must save the listing!
+    
+    res.redirect(`/listings/${req.params.id}`);
+}));
+
+app.get("/listings/:id/reviews/:reviewId/edit", wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    let review = await Review.findById(req.params.reviewId);
+    if (!review) {
+        throw new ExpressError(404, "Review not found!");
+    }
+    res.render("reviews/form.ejs", { listing, review });
+}));
+
+app.put("/listings/:id/reviews/:reviewId", validateReview, wrapAsync(async (req, res) => {
+    await Review.findByIdAndUpdate(req.params.reviewId, req.body, { runValidators: true });
+    res.redirect(`/listings/${req.params.id}`);
+}));
+
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
+    await Listing.findByIdAndUpdate(req.params.id, { $pull: { reviews: req.params.reviewId } });
+    await Review.findByIdAndDelete(req.params.reviewId);
+    res.redirect(`/listings/${req.params.id}`);
+}));
 
 
 app.use((req, res, next) => {

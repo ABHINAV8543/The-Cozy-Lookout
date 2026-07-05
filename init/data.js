@@ -257,4 +257,27 @@ let listings = [
     }
 ];
 
-module.exports = { data : listings };
+let reviews = [
+    { rating: 5, comment: "Amazing place, highly recommended!" },
+    { rating: 4, comment: "A bit noisy but beautiful views." },
+    { rating: 5, comment: "Great host, lovely stay." },
+    { rating: 4, comment: "Would definitely come back!" },
+    { rating: 3, comment: "Not what we expected but okay." },
+    { rating: 5, comment: "Breathtaking scenery and cozy interior." },
+    { rating: 5, comment: "Perfect for a weekend getaway." },
+    { rating: 4, comment: "Clean, comfortable, and close to everything." },
+    { rating: 5, comment: "Absolutely stunning property, we loved it!" },
+    { rating: 3, comment: "Good value for money." },
+    { rating: 1, comment: "Terrible experience, the place was dirty." },
+    { rating: 2, comment: "The AC was broken and the host didn't respond." },
+    { rating: 1, comment: "Nothing like the pictures. Very disappointed." },
+    { rating: 2, comment: "Location is good but the house needs maintenance." },
+    { rating: 1, comment: "Loud construction next door ruined our trip." },
+    { rating: 2, comment: "Beds were extremely uncomfortable." },
+    { rating: 4, comment: "Nice stay overall, just a bit overpriced." },
+    { rating: 1, comment: "Found bugs in the bathroom. Left immediately." },
+    { rating: 5, comment: "Exceptional! Exceeded all our expectations." },
+    { rating: 2, comment: "Check-in process was a nightmare." }
+];
+
+module.exports = { data : listings, reviews: reviews };
