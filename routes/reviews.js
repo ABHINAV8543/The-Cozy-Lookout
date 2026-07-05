@@ -1,0 +1,47 @@
+const express = require("express");
+const router = express.Router({ mergeParams: true });
+const Listing = require("../models/listing.js");
+const Review = require("../models/review.js");
+const ExpressError = require("../utils/ExpressError.js");
+const wrapAsync = require("../utils/wrapAsync.js");
+const { validateReview } = require("../utils/middleware.js");
+
+router.get("/new", wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found!");
+    }
+    res.render("reviews/form.ejs", { listing, review: null });
+}));
+
+router.post("/", validateReview, wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    let review = await Review.create(req.body);
+    listing.reviews.push(review);
+    
+    await listing.save();
+    
+    res.redirect(`/listings/${req.params.id}`);
+}));
+
+router.get("/:reviewId/edit", wrapAsync(async (req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    let review = await Review.findById(req.params.reviewId);
+    if (!review) {
+        throw new ExpressError(404, "Review not found!");
+    }
+    res.render("reviews/form.ejs", { listing, review });
+}));
+
+router.put("/:reviewId", validateReview, wrapAsync(async (req, res) => {
+    await Review.findByIdAndUpdate(req.params.reviewId, req.body, { runValidators: true });
+    res.redirect(`/listings/${req.params.id}`);
+}));
+
+router.delete("/:reviewId", wrapAsync(async (req, res) => {
+    await Listing.findByIdAndUpdate(req.params.id, { $pull: { reviews: req.params.reviewId } });
+    await Review.findByIdAndDelete(req.params.reviewId);
+    res.redirect(`/listings/${req.params.id}`);
+}));
+
+module.exports = router;
