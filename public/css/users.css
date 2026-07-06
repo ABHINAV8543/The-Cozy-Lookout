@@ -87,3 +87,23 @@
 .was-validated input:invalid ~ .invalid-feedback {
     display: block;
 }
+
+/* Auth Footer Link */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #9ca3af;
+}
+
+.auth-footer a {
+    color: #ff4d8d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-footer a:hover {
+    color: #ff6b9e;
+    text-decoration: underline;
+}

@@ -264,4 +264,21 @@ let reviews = [
     { rating: 2, comment: "Check-in process was a nightmare." }
 ];
 
-module.exports = { data : listings, reviews: reviews };
+let users = [
+    { username: "john_doe", email: "john@example.com" },
+    { username: "jane_smith", email: "jane@example.com" },
+    { username: "alice_wonder", email: "alice@example.com" },
+    { username: "bob_builder", email: "bob@example.com" },
+    { username: "charlie_chaplin", email: "charlie@example.com" },
+    { username: "diana_prince", email: "diana@example.com" },
+    { username: "edward_scissor", email: "edward@example.com" },
+    { username: "fiona_gallagher", email: "fiona@example.com" },
+    { username: "george_clooney", email: "george@example.com" },
+    { username: "hannah_montana", email: "hannah@example.com" }
+];
+
+module.exports = {
+    data : listings,
+    reviews: reviews,
+    users: users
+};

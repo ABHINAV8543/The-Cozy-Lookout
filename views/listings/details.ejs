@@ -7,14 +7,19 @@
     <div class="outer-container">
         <div class="container">
             <h1 class="title"> <%= data.title %> </h1>
+            <p style="color: #9ca3af; font-size: 0.95rem; margin-top: -10px; margin-bottom: 20px;">
+                <i>Owned by @<%= owner ? owner.username : 'Unknown User' %></i>
+            </p>
             <img src="<%= data.image %>" alt="" class="listing-img">
             <p class="description"> <%= data.description %> </p>
             <p class="location"> <%= data.location %> </p>
             <p class="price"> ₹<%= data.price.toLocaleString("en-in") %> </p>
-            <div class="btn-container">
-                <a href="edit/<%= data._id %>"><button class="btn edit">Edit</button></a>
-                <button class="btn delete" onclick="confirmDelete('<%= data._id %>')">Delete</button>
-            </div>
+            <% if(currUser && currUser._id.equals(owner._id)) { %>
+                <div class="btn-container">
+                    <a href="edit/<%= data._id %>"><button class="btn edit">Edit</button></a>
+                    <button class="btn delete" onclick="confirmDelete('<%= data._id %>')">Delete</button>
+                </div>
+            <% } %>
         </div>
     </div>
 
@@ -39,13 +44,19 @@
                                 <% } %>
                             <% } %>
                         </div>
-                        <p class="review-comment"><%= review.comment %></p>
-                        <div class="review-actions">
-                            <a href="/listings/<%= data._id %>/reviews/<%= review._id %>/edit" class="review-btn review-edit-btn" style="text-decoration: none;">Edit</a>
-                            <form method="POST" action="/listings/<%= data._id %>/reviews/<%= review._id %>?_method=DELETE" class="d-inline">
-                                <button type="submit" class="review-btn review-delete-btn">Delete</button>
-                            </form>
+                        <div class="review-header" style="margin-top: 5px; margin-bottom: 5px;">
+                            <span style="font-weight: 600; font-size: 0.95rem; color: #ff4d8d;">@<%= authorMap[review.author.toString()] %></span>
                         </div>
+                        <p class="review-comment"><%= review.comment %></p>
+                        
+                        <% if(currUser && currUser._id.equals(review.author)) { %>
+                            <div class="review-actions">
+                                <a href="/listings/<%= data._id %>/reviews/<%= review._id %>/edit" class="review-btn review-edit-btn" style="text-decoration: none;">Edit</a>
+                                <form method="POST" action="/listings/<%= data._id %>/reviews/<%= review._id %>?_method=DELETE" class="d-inline">
+                                    <button type="submit" class="review-btn review-delete-btn">Delete</button>
+                                </form>
+                            </div>
+                        <% } %>
                     </div>
                 <% } %>
             </div>

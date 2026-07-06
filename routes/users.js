@@ -6,16 +6,25 @@ const passport = require("passport");
 const { saveRedirectUrl } = require("../utils/middleware.js");
 
 router.get("/signup", (req, res) => {
+    if (req.query.redirect && req.query.redirect !== '/favicon.ico') {
+        req.session.redirectUrl = req.query.redirect;
+    }
     res.render("users/signup.ejs");
 });
 
-router.post("/signup", wrapAsync(async (req, res) => {
+router.post("/signup", saveRedirectUrl, wrapAsync(async (req, res, next) => {
     try {
         let { username, email, password } = req.body;
         const newUser = new User({ email, username });
         const registeredUser = await User.register(newUser, password);
-        req.flash("success", "Account Created! Login to continue.");
-        res.redirect("/login");
+        req.login(registeredUser, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash("success", "Welcome to The Cozy Lookout!");
+            let redirectUrl = res.locals.redirectUrl || "/listings";
+            res.redirect(redirectUrl);
+        });
     } catch (e) {
         req.flash("error", e.message);
         res.redirect("/signup");
@@ -23,6 +32,9 @@ router.post("/signup", wrapAsync(async (req, res) => {
 }));
 
 router.get("/login", (req, res) => {
+    if (req.query.redirect && req.query.redirect !== '/favicon.ico') {
+        req.session.redirectUrl = req.query.redirect;
+    }
     res.render("users/login.ejs");
 });
 
