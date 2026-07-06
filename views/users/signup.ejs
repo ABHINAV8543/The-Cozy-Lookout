@@ -1,0 +1,28 @@
+<%- layout('layouts/boilerplate') %>
+
+<% block('title', 'Sign Up') %>
+<% block('head', '<link rel="stylesheet" href="/css/users.css">') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Sign Up for The Cozy Lookout</h2>
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <div class="invalid-feedback">Please provide a valid username.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="invalid-feedback">Please provide a valid password.</div>
+            </div>
+            <button class="btn btn-auth">Sign Up</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<%- layout('layouts/boilerplate') %>
+
+<% block('title', 'Log In') %>
+<% block('head', '<link rel="stylesheet" href="/css/users.css">') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Welcome Back</h2>
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+            <button class="btn btn-auth">Log In</button>
+        </form>
+    </div>
+</div>
