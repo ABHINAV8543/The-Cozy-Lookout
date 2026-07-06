@@ -4,9 +4,9 @@ const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
 const ExpressError = require("../utils/ExpressError.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const { validateReview } = require("../utils/middleware.js");
+const { validateReview, isLoggedIn } = require("../utils/middleware.js");
 
-router.get("/new", wrapAsync(async (req, res) => {
+router.get("/new", isLoggedIn, wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     if (!listing) {
         throw new ExpressError(404, "Listing not found!");
@@ -14,7 +14,7 @@ router.get("/new", wrapAsync(async (req, res) => {
     res.render("reviews/form.ejs", { listing, review: null });
 }));
 
-router.post("/", validateReview, wrapAsync(async (req, res) => {
+router.post("/", isLoggedIn, validateReview, wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     let review = await Review.create(req.body);
     listing.reviews.push(review);
@@ -25,7 +25,7 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
     res.redirect(`/listings/${req.params.id}`);
 }));
 
-router.get("/:reviewId/edit", wrapAsync(async (req, res) => {
+router.get("/:reviewId/edit", isLoggedIn, wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     let review = await Review.findById(req.params.reviewId);
     if (!review) {
@@ -34,13 +34,13 @@ router.get("/:reviewId/edit", wrapAsync(async (req, res) => {
     res.render("reviews/form.ejs", { listing, review });
 }));
 
-router.put("/:reviewId", validateReview, wrapAsync(async (req, res) => {
+router.put("/:reviewId", isLoggedIn, validateReview, wrapAsync(async (req, res) => {
     await Review.findByIdAndUpdate(req.params.reviewId, req.body, { runValidators: true });
     req.flash("success", "Review updated successfully!");
     res.redirect(`/listings/${req.params.id}`);
 }));
 
-router.delete("/:reviewId", wrapAsync(async (req, res) => {
+router.delete("/:reviewId", isLoggedIn, wrapAsync(async (req, res) => {
     await Listing.findByIdAndUpdate(req.params.id, { $pull: { reviews: req.params.reviewId } });
     await Review.findByIdAndDelete(req.params.reviewId);
     req.flash("success", "Review deleted successfully!");

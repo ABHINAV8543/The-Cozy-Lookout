@@ -3,22 +3,57 @@
         The Cozy Lookout
     </div>
     
-    <div class="menu-icon" onclick="toggleSidebar()">
-        <i class="fa-solid fa-list"></i>
-    </div>
+    <div class="navbar-content">
+        <ul class="nav-links" id="sidebar">
+            <li class="close-icon" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/listings">Listings</a></li>
+            <li><a href="/listings/new">Add Listing</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
 
-    <ul class="nav-links" id="sidebar">
-        <li class="close-icon" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></li>
-        <li><a href="/">Home</a></li>
-        <li><a href="/listings">Listings</a></li>
-        <li><a href="/listings/new">Add Listing</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
+        <div class="nav-right">
+            <div class="user-menu-container">
+                <div class="user-icon" onclick="toggleUserMenu()">
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <% if(!currUser) { %>
+                        <a href="/login" class="dropdown-item"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a>
+                        <a href="/signup" class="dropdown-item"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+                    <% } else { %>
+                        <a href="/logout" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <i class="fa-solid fa-list"></i>
+            </div>
+        </div>
+    </div>
 </nav>
 <div class="navbar-spacer"></div>
 
 <script>
     function toggleSidebar() {
         document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    function toggleUserMenu() {
+        document.getElementById("userDropdown").classList.toggle("active");
+    }
+
+    // Close dropdown when clicking outside
+    window.onclick = function(event) {
+        if (!event.target.closest('.user-menu-container')) {
+            var dropdowns = document.getElementsByClassName("user-dropdown");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('active')) {
+                    openDropdown.classList.remove('active');
+                }
+            }
+        }
     }
 </script>
