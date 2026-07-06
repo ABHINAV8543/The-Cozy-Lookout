@@ -18,32 +18,41 @@ router.get("/new", (req, res) => {
 router.get("/:id", wrapAsync(async (req, res) => {
     let data = await Listing.findById(req.params.id);
     if (!data) {
-        throw new ExpressError(404, "Listing not found!");
+        req.flash("error", "Listing not found!");
+        res.redirect("/listings");
     }
-    let reviews = await Review.find({ _id: { $in: data.reviews } });
-    res.render("listings/details.ejs", { data, reviews });
+    else {
+        let reviews = await Review.find({ _id: { $in: data.reviews } });
+        res.render("listings/details.ejs", { data, reviews });
+    }
 }));
 
 router.post("/", validateListing, wrapAsync(async (req, res) => {
     await Listing.create(req.body);
+    req.flash("success", "New listing created successfully!");
     res.redirect("/listings");
 }));
 
 router.get("/edit/:id", wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     if (!listing) {
-        throw new ExpressError(404, "Listing not found!");
+        req.flash("error", "Listing not found!");
+        res.redirect("/listings");
     }
-    res.render("listings/edit.ejs", { listing });
+    else {
+        res.render("listings/edit.ejs", { listing });
+    }
 }));
 
 router.put("/edit/:id", validateListing, wrapAsync(async (req, res) => {
     await Listing.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
+    req.flash("success", "Listing updated successfully!");
     res.redirect(`/listings/${req.params.id}`);
 }));
 
 router.delete("/:id", wrapAsync(async (req, res) => {
     await Listing.findByIdAndDelete(req.params.id);
+    req.flash("success", "Listing deleted successfully!");
     res.redirect("/listings");
 }));
 

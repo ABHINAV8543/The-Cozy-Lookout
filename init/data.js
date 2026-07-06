@@ -8,28 +8,12 @@ let listings = [
         country: "Italy"
     },
     {
-        title: "Modern Architectural Masterpiece w/ Pool",
-        description: "Entire modern villa in Los Angeles, USA: 10 guests, 5 bedrooms, 5 beds, 5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2020/06/25/10/21/architecture-5339245_640.jpg", //[cite: 2]
-        price: 54000,
-        location: "Beverly Hills, California, United States",
-        country: "United States"
-    },
-    {
         title: "Azure Pool House Luxury Stay",
         description: "Entire villa in Santorini, Maldives: 4 guests, 2 bedrooms, 2 beds, 2.5 bathrooms",
         image: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_640.jpg", //[cite: 2]
         price: 32000,
         location: "Male, Maldives",
         country: "Maldives"
-    },
-    {
-        title: "Villa Real Monza Park Suite",
-        description: "Entire rental unit in Monza, Italy: 4 guests, 2 bedrooms, 2 beds, 2 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2019/11/19/17/56/villa-real-4638107_640.jpg", //[cite: 2]
-        price: 11200,
-        location: "Monza, Lombardy, Italy",
-        country: "Italy"
     },
     {
         title: "Finale Mansion Estate & Gardens",

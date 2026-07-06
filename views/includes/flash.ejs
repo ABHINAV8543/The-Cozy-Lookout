@@ -1,0 +1,15 @@
+<% if (success && success.length) { %>
+    <div class="custom-alert custom-alert-success" id="flash-success">
+        <i class="fa-solid fa-circle-check"></i>
+        <span><%= success %></span>
+        <button type="button" class="btn-close" onclick="document.getElementById('flash-success').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+<% } %>
+
+<% if (error && error.length) { %>
+    <div class="custom-alert custom-alert-error" id="flash-error">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span><%= error %></span>
+        <button type="button" class="btn-close" onclick="document.getElementById('flash-error').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+<% } %>
