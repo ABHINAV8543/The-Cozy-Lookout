@@ -3,6 +3,7 @@ const listingSchema = require("../schema/listing.js");
 const reviewSchema = require("../schema/review.js");
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
+const cloudinary = require("../config/cloudinary.js");
 
 module.exports.isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
@@ -64,4 +65,25 @@ module.exports.validateReview = (req, res, next) => {
     else{
         next();
     }
+}
+
+module.exports.uploadListingImage = (req, res, next) => {
+    if (!req.file) {
+        throw new ExpressError(400, "Image is required!");
+    }
+
+    const stream = cloudinary.uploader.upload_stream(
+        { folder: "thecozylookout" }, 
+        (error, result) => {
+            if (error){
+                return res.status(500).json({ error });
+            }
+            req.body.image = {
+                url: result.secure_url,
+                filename: result.public_id
+            };
+            next();
+        }
+    );
+    stream.end(req.file.buffer);
 }

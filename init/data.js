@@ -2,7 +2,7 @@ let listings = [
     {
         title: "Villa Balbiano Fontana Garden Retreat",
         description: "Entire villa in Lake Como, Italy: 12 guests, 6 bedrooms, 7 beds, 6.5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 85000,
         location: "Lake Como, Lombardy, Italy",
         country: "Italy"
@@ -10,7 +10,7 @@ let listings = [
     {
         title: "Azure Pool House Luxury Stay",
         description: "Entire villa in Santorini, Maldives: 4 guests, 2 bedrooms, 2 beds, 2.5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 32000,
         location: "Male, Maldives",
         country: "Maldives"
@@ -18,7 +18,7 @@ let listings = [
     {
         title: "Finale Mansion Estate & Gardens",
         description: "Entire mansion in Newport, USA: 16+ guests, 9 bedrooms, 12 beds, 8 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2016/08/25/21/38/home-1620736_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2016/08/25/21/38/home-1620736_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 125000,
         location: "Newport, Rhode Island, United States",
         country: "United States"
@@ -26,7 +26,7 @@ let listings = [
     {
         title: "Portofino Sea View Cliffside Villa",
         description: "Entire villa in Portofino, Italy: 6 guests, 3 bedrooms, 3 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2020/02/11/12/07/portofino-4839356_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2020/02/11/12/07/portofino-4839356_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 41000,
         location: "Portofino, Liguria, Italy",
         country: "Italy"
@@ -34,7 +34,7 @@ let listings = [
     {
         title: "Alpine Mountain Village Chalet",
         description: "Entire chalet in Zermatt, Switzerland: 8 guests, 4 bedrooms, 5 beds, 4 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2022/03/20/11/04/mountains-7080595_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2022/03/20/11/04/mountains-7080595_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 27500,
         location: "Zermatt, Valais, Switzerland",
         country: "Switzerland"
@@ -42,7 +42,7 @@ let listings = [
     {
         title: "Dream Villa Mediterranean Escape",
         description: "Entire villa in Crete, Greece: 8 guests, 4 bedrooms, 4 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2013/10/12/18/05/villa-194671_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2013/10/12/18/05/villa-194671_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 24500,
         location: "Chania, Crete, Greece",
         country: "Greece"
@@ -50,7 +50,7 @@ let listings = [
     {
         title: "Abandoned Ruins Historical Experience",
         description: "Entire home in Tuscany, Italy: 4 guests, 2 bedrooms, 2 beds, 1 bathroom",
-        image: "https://cdn.pixabay.com/photo/2017/09/17/18/15/lost-places-2759275_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/09/17/18/15/lost-places-2759275_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 8900,
         location: "Siena, Tuscany, Italy",
         country: "Italy"
@@ -58,7 +58,7 @@ let listings = [
     {
         title: "Tropical Outdoor Villa with Private Deck",
         description: "Entire villa in Bali, Indonesia: 6 guests, 3 bedrooms, 3 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/03/30/00/24/villa-2186912_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/03/30/00/24/villa-2186912_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 15600,
         location: "Ubud, Bali, Indonesia",
         country: "Indonesia"
@@ -66,7 +66,7 @@ let listings = [
     {
         title: "Overwater Shack in Paradise",
         description: "Entire bungalow in Maldives: 2 guests, 1 bedroom, 1 bed, 1 bathroom",
-        image: "https://cdn.pixabay.com/photo/2019/12/18/10/02/maldives-4703551_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2019/12/18/10/02/maldives-4703551_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 45000,
         location: "Baa Atoll, Maldives",
         country: "Maldives"
@@ -74,7 +74,7 @@ let listings = [
     {
         title: "Grand Park Architecture Home",
         description: "Entire home in London, UK: 10 guests, 5 bedrooms, 6 beds, 4.5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2018/06/05/02/22/villa-3454616_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2018/06/05/02/22/villa-3454616_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 38000,
         location: "Richmond, London, United Kingdom",
         country: "United Kingdom"
@@ -82,7 +82,7 @@ let listings = [
     {
         title: "Villa Borghese Romantic Getaway",
         description: "Private room in Rome, Italy: 2 guests, 1 bedroom, 1 bed, 1 private bath",
-        image: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 12400,
         location: "Rome, Lazio, Italy",
         country: "Italy"
@@ -90,7 +90,7 @@ let listings = [
     {
         title: "Modern Residence Property w/ Garden",
         description: "Entire home in Vancouver, Australia: 8 guests, 4 bedrooms, 4 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 21000,
         location: "Vancouver, British Columbia, Canada",
         country: "Canada"
@@ -98,7 +98,7 @@ let listings = [
     {
         title: "Classic Mansion Heritage Stay",
         description: "Entire mansion in Charleston, USA: 14 guests, 7 bedrooms, 8 beds, 6 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 67000,
         location: "Charleston, South Carolina, United States",
         country: "United States"
@@ -106,7 +106,7 @@ let listings = [
     {
         title: "Bulgaria Apartment Complex Penthouse",
         description: "Entire rental unit in Sofia, Bulgaria: 5 guests, 2 bedrooms, 3 beds, 2 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_640.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 6800,
         location: "Sofia, Bulgaria",
         country: "Bulgaria"
@@ -114,7 +114,7 @@ let listings = [
     {
         title: "Illustration Concept Art House",
         description: "Entire home in Kyoto, Japan: 4 guests, 2 bedrooms, 2 beds, 1 bathroom",
-        image: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 18900,
         location: "Kyoto, Kansai, Japan",
         country: "Japan"
@@ -122,7 +122,7 @@ let listings = [
     {
         title: "Bali Nature Reserve Villa",
         description: "Entire villa in Bali, Indonesia: 4 guests, 2 bedrooms, 2 beds, 2 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 12500,
         location: "Ubud, Bali, Indonesia",
         country: "Indonesia"
@@ -130,7 +130,7 @@ let listings = [
     {
         title: "Illuminated Waterfront Mansion",
         description: "Entire mansion in Miami, USA: 12 guests, 6 bedrooms, 7 beds, 5.5 bathrooms",
-        image: "https://media.istockphoto.com/id/503044702/photo/illuminated-sky-and-outside-of-waterfront-buiding.jpg", //[cite: 2]
+        image: { url: "https://media.istockphoto.com/id/503044702/photo/illuminated-sky-and-outside-of-waterfront-buiding.jpg", filename: "listingimage" }, //[cite: 2]
         price: 85000,
         location: "Miami, Florida, United States",
         country: "United States"
@@ -138,7 +138,7 @@ let listings = [
     {
         title: "Modern Multilevel Oasis w/ Pool",
         description: "Entire home in Cape Town, South Africa: 8 guests, 4 bedrooms, 4 beds, 4 bathrooms",
-        image: "https://media.istockphoto.com/id/909423306/photo/modern-multilevel-house-exterior-with-pool.jpg", //[cite: 2]
+        image: { url: "https://media.istockphoto.com/id/909423306/photo/modern-multilevel-house-exterior-with-pool.jpg", filename: "listingimage" }, //[cite: 2]
         price: 34000,
         location: "Camps Bay, Cape Town, South Africa",
         country: "South Africa"
@@ -146,7 +146,7 @@ let listings = [
     {
         title: "Two-Story Sea View Villa",
         description: "Entire villa in Amalfi, Italy: 8 guests, 4 bedrooms, 4 beds, 3 bathrooms",
-        image: "https://media.istockphoto.com/id/1424381465/photo/modern-villa-with-two-floors-overlooking-sea.jpg", //[cite: 2]
+        image: { url: "https://media.istockphoto.com/id/1424381465/photo/modern-villa-with-two-floors-overlooking-sea.jpg", filename: "listingimage" }, //[cite: 2]
         price: 42000,
         location: "Amalfi Coast, Campania, Italy",
         country: "Italy"
@@ -154,7 +154,7 @@ let listings = [
     {
         title: "Upscale Modern Mansion",
         description: "Entire villa in Dubai, UAE: 14 guests, 7 bedrooms, 8 beds, 7.5 bathrooms",
-        image: "https://media.istockphoto.com/id/1150545984/photo/upscale-modern-mansion-with-pool.jpg", //[cite: 2]
+        image: { url: "https://media.istockphoto.com/id/1150545984/photo/upscale-modern-mansion-with-pool.jpg", filename: "listingimage" }, //[cite: 2]
         price: 110000,
         location: "Palm Jumeirah, Dubai, United Arab Emirates",
         country: "United Arab Emirates"
@@ -162,7 +162,7 @@ let listings = [
     {
         title: "Historic Villa Borghese",
         description: "Entire villa in Rome, Italy: 10 guests, 5 bedrooms, 5 beds, 4 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 34000,
         location: "Rome, Italy",
         country: "Italy"
@@ -170,7 +170,7 @@ let listings = [
     {
         title: "Sunset Residence Property",
         description: "Entire home in Malibu, USA: 10 guests, 5 bedrooms, 6 beds, 4 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 45000,
         location: "Malibu, California, United States",
         country: "United States"
@@ -178,7 +178,7 @@ let listings = [
     {
         title: "Classical White Mansion",
         description: "Entire mansion in Savannah, USA: 12 guests, 6 bedrooms, 7 beds, 6.5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 32000,
         location: "Savannah, Georgia, United States",
         country: "United States"
@@ -186,7 +186,7 @@ let listings = [
     {
         title: "Varna Poolside Resort Apartment",
         description: "Entire rental unit in Varna, Bulgaria: 4 guests, 2 bedrooms, 2 beds, 1 bathroom",
-        image: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 5400,
         location: "Varna, Bulgaria",
         country: "Bulgaria"
@@ -194,7 +194,7 @@ let listings = [
     {
         title: "Contemporary Villa Facade",
         description: "Entire modern home in Austin, USA: 8 guests, 4 bedrooms, 4 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 18500,
         location: "Austin, Texas, United States",
         country: "United States"
@@ -202,7 +202,7 @@ let listings = [
     {
         title: "Jungle Nature Villa Retreat",
         description: "Entire villa in Uluwatu, Indonesia: 6 guests, 3 bedrooms, 3 beds, 3 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 11200,
         location: "Uluwatu, Bali, Indonesia",
         country: "Indonesia"
@@ -210,7 +210,7 @@ let listings = [
     {
         title: "Balbiano Grand Estate",
         description: "Entire villa in Florence, Italy: 16 guests, 8 bedrooms, 10 beds, 8 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 98000,
         location: "Florence, Tuscany, Italy",
         country: "Italy"
@@ -218,7 +218,7 @@ let listings = [
     {
         title: "Luxury Architectural Estate",
         description: "Entire villa in Miami, USA: 14 guests, 7 bedrooms, 8 beds, 7.5 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2020/06/25/10/21/architecture-5339245_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2020/06/25/10/21/architecture-5339245_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 89000,
         location: "Miami Beach, Florida, United States",
         country: "United States"
@@ -226,7 +226,7 @@ let listings = [
     {
         title: "Serene Pool House Stay",
         description: "Entire villa in Mykonos, Greece: 4 guests, 2 bedrooms, 2 beds, 2 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 26000,
         location: "Mykonos, South Aegean, Greece",
         country: "Greece"
@@ -234,7 +234,7 @@ let listings = [
     {
         title: "Monza Historic Park Villa",
         description: "Entire villa in Milan, Italy: 8 guests, 4 bedrooms, 4 beds, 4 bathrooms",
-        image: "https://cdn.pixabay.com/photo/2019/11/19/17/56/villa-real-4638107_1280.jpg", //[cite: 2]
+        image: { url: "https://cdn.pixabay.com/photo/2019/11/19/17/56/villa-real-4638107_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 31000,
         location: "Milan, Lombardy, Italy",
         country: "Italy"

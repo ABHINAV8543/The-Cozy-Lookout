@@ -9,7 +9,7 @@
         <% listingsData.forEach((listing) => { %>
             <a href="/listings/<%= listing._id %>">
                 <div class="card">
-                    <img src="<%= listing.image %>" alt="<%= listing.title %>" class="listing-img">
+                    <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="listing-img">
                     <p class="title"><%= listing.title %></p>
                     <p class="location"><%= listing.location %></p>
                     <p class="price">₹<%= listing.price.toLocaleString("en-in") %></p>

@@ -6,7 +6,7 @@
     <div class="form-container">
         <h1>Add New Listing</h1>
 
-        <form action="/listings" method="POST" class="listing-form needs-validation" novalidate>
+        <form action="/listings" method="POST" class="listing-form needs-validation" novalidate enctype="multipart/form-data">
 
             <div class="input-group">
                 <label for="title">Title</label>
@@ -20,7 +20,7 @@
                 <div class="invalid-feedback">Please enter a valid title.</div>
             </div>
 
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <label for="image">Image URL</label>
                 <input
                     type="text"
@@ -30,6 +30,18 @@
                     required
                 >
                 <div class="invalid-feedback">Please provide an image URL.</div>
+            </div> -->
+
+            <div class="input-group">
+                <label for="image">Upload Image</label>
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    placeholder="Listing Image"
+                    required
+                >
+                <div class="invalid-feedback">Please upload a image.</div>
             </div>
 
             <div class="input-group">

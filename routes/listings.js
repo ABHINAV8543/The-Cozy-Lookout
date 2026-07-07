@@ -3,10 +3,14 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const { validateListing, isLoggedIn, isOwner } = require("../utils/middleware.js");
 const listingController = require("../controllers/listings.js");
+const cloudinary = require("../config/cloudinary.js");
+const multer = require("multer");
+const uploads = multer({ storage: multer.memoryStorage() });
+const { uploadListingImage } = require("../utils/middleware.js");
 
 router.route("/")
     .get(wrapAsync(listingController.index))
-    .post(isLoggedIn, validateListing, wrapAsync(listingController.createListing));
+    .post(uploads.single("image"), validateListing, uploadListingImage, wrapAsync(listingController.createListing));
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 

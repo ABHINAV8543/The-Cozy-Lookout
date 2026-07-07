@@ -10,7 +10,7 @@
             <p style="color: #9ca3af; font-size: 0.95rem; margin-top: -10px; margin-bottom: 20px;">
                 <i>Owned by @<%= owner ? owner.username : 'Unknown User' %></i>
             </p>
-            <img src="<%= data.image %>" alt="" class="listing-img">
+            <img src="<%= data.image.url %>" alt="" class="listing-img">
             <p class="description"> <%= data.description %> </p>
             <p class="location"> <%= data.location %> </p>
             <p class="price"> ₹<%= data.price.toLocaleString("en-in") %> </p>
