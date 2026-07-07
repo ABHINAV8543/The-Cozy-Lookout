@@ -4,12 +4,18 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const { validateListing, isLoggedIn, isOwner } = require("../utils/middleware.js");
 const listingController = require("../controllers/listings.js");
 
-router.get("/", wrapAsync(listingController.index));
+router.route("/")
+    .get(wrapAsync(listingController.index))
+    .post(isLoggedIn, validateListing, wrapAsync(listingController.createListing));
+
 router.get("/new", isLoggedIn, listingController.renderNewForm);
-router.get("/:id", wrapAsync(listingController.showListing));
-router.post("/", isLoggedIn, validateListing, wrapAsync(listingController.createListing));
-router.get("/edit/:id", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
-router.put("/edit/:id", isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing));
-router.delete("/:id", isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
+
+router.route("/:id")
+    .get(wrapAsync(listingController.showListing))
+    .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
+
+router.route("/edit/:id")
+    .get(isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm))
+    .put(isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing));
 
 module.exports = router;

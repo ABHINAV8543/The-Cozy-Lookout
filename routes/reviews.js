@@ -5,9 +5,13 @@ const { validateReview, isLoggedIn, isReviewAuthor } = require("../utils/middlew
 const reviewController = require("../controllers/reviews.js");
 
 router.get("/new", isLoggedIn, wrapAsync(reviewController.renderNewReviewForm));
+
 router.post("/", isLoggedIn, validateReview, wrapAsync(reviewController.createReview));
+
+router.route("/:reviewId")
+    .put(isLoggedIn, isReviewAuthor, validateReview, wrapAsync(reviewController.updateReview))
+    .delete(isLoggedIn, isReviewAuthor, wrapAsync(reviewController.destroyReview));
+
 router.get("/:reviewId/edit", isLoggedIn, isReviewAuthor, wrapAsync(reviewController.renderEditReviewForm));
-router.put("/:reviewId", isLoggedIn, isReviewAuthor, validateReview, wrapAsync(reviewController.updateReview));
-router.delete("/:reviewId", isLoggedIn, isReviewAuthor, wrapAsync(reviewController.destroyReview));
 
 module.exports = router;
