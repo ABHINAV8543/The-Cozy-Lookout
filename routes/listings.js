@@ -5,7 +5,20 @@ const { validateListing, isLoggedIn, isOwner } = require("../utils/middleware.js
 const listingController = require("../controllers/listings.js");
 const cloudinary = require("../config/cloudinary.js");
 const multer = require("multer");
-const uploads = multer({ storage: multer.memoryStorage() });
+
+const imageFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith("image/")) {
+        cb(null, true);
+    } else {
+        cb(new Error("Invalid file type. Only images are allowed!"), false);
+    }
+};
+
+const uploads = multer({ 
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 1024 * 1024 * 5 }, // 5 MB limit
+    fileFilter: imageFilter
+});
 const { uploadListingImage } = require("../utils/middleware.js");
 
 router.route("/")
@@ -20,6 +33,6 @@ router.route("/:id")
 
 router.route("/edit/:id")
     .get(isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm))
-    .put(isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing));
+    .put(isLoggedIn, isOwner, uploads.single("image"), validateListing, uploadListingImage, wrapAsync(listingController.updateListing));
 
 module.exports = router;

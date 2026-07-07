@@ -65,18 +65,3 @@
     <% } %>
         </div>
     </div>
-
-    <script>
-        async function confirmDelete(id){
-            if(confirm("Do you really want to delete this listing?")){
-                const form = document.createElement("form");
-                form.method = "POST";
-                form.action = `/listings/${id}?_method=DELETE`;
-                document.body.appendChild(form);
-                form.submit();
-            }
-            else{
-                console.log("Deletion Canceled");
-            }
-        }
-    </script>

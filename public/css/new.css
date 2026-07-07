@@ -98,6 +98,18 @@
     display: block;
 }
 
+/* Invalid Submit Button State */
+form.was-validated:invalid .submit-btn {
+    background-color: #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    border: 1px solid #dc2626;
+}
+
+form.was-validated:invalid .submit-btn:hover {
+    background-color: #dc2626;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+}
+
 /* Custom File Upload Styling */
 .input-group input[type="file"] {
     padding: 8px 10px;

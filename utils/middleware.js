@@ -69,7 +69,10 @@ module.exports.validateReview = (req, res, next) => {
 
 module.exports.uploadListingImage = (req, res, next) => {
     if (!req.file) {
-        throw new ExpressError(400, "Image is required!");
+        if (req.method === 'PUT') {
+            return next();
+        }
+        throw new ExpressError(400, "Image is required for new listings!");
     }
 
     const stream = cloudinary.uploader.upload_stream(

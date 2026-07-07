@@ -66,3 +66,15 @@ body {
 .btn-close:hover {
     opacity: 1;
 }
+
+/* Global Form Validation Warning */
+form.was-validated:invalid::after {
+    content: "Please fix the errors highlighted above before submitting.";
+    display: block;
+    color: #ef4444;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease-in-out;
+}
