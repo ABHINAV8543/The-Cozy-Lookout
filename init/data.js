@@ -274,7 +274,12 @@ let users = [
     { username: "edward_scissor", email: "edward@example.com" },
     { username: "fiona_gallagher", email: "fiona@example.com" },
     { username: "george_clooney", email: "george@example.com" },
-    { username: "hannah_montana", email: "hannah@example.com" }
+    { username: "hannah_montana", email: "hannah@example.com" },
+    { username: "user1", email: "user1@example.com" },
+    { username: "user2", email: "user2@example.com" },
+    { username: "user3", email: "user3@example.com" },
+    { username: "user4", email: "user4@example.com" },
+    { username: "test", email: "test@example.com" }
 ];
 
 module.exports = {
