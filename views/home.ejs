@@ -1,1 +1,48 @@
 <%- layout('layouts/boilerplate') %>
+
+<% block('title', 'Welcome to The Cozy Lookout') %>
+<% block('head', '<link rel="stylesheet" href="/css/home.css">') %>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Find Your Perfect Escape</h1>
+        <p class="hero-subtitle">
+            Discover breathtaking villas, cozy mountain cabins, and luxurious beachfront estates curated just for you. Your next unforgettable adventure starts here.
+        </p>
+        <a href="/listings" class="hero-btn">Explore Listings <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-shield-halved feature-icon"></i>
+            <h3 class="feature-title">Secure Booking</h3>
+            <p class="feature-text">
+                Every reservation is backed by our world-class security. Your payment information is encrypted and protected at all times.
+            </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-gem feature-icon"></i>
+            <h3 class="feature-title">Verified Estates</h3>
+            <p class="feature-text">
+                We personally verify each property to ensure it meets our strict premium quality standards. No surprises, just luxury.
+            </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-headset feature-icon"></i>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-text">
+                Our global support team is available around the clock to assist you with your booking, check-in, and stay.
+            </p>
+        </div>
+    </div>
+</section>
