@@ -83,6 +83,25 @@
             </div>
 
             <div class="input-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected style="color: #000;">Select a Category</option>
+                    <option value="Trending" style="color: #000;">Trending</option>
+                    <option value="Rooms" style="color: #000;">Rooms</option>
+                    <option value="Iconic Cities" style="color: #000;">Iconic Cities</option>
+                    <option value="Mountains" style="color: #000;">Mountains</option>
+                    <option value="Castles" style="color: #000;">Castles</option>
+                    <option value="Amazing Pools" style="color: #000;">Amazing Pools</option>
+                    <option value="Camping" style="color: #000;">Camping</option>
+                    <option value="Farms" style="color: #000;">Farms</option>
+                    <option value="Arctic" style="color: #000;">Arctic</option>
+                    <option value="Domes" style="color: #000;">Domes</option>
+                    <option value="Boats" style="color: #000;">Boats</option>
+                </select>
+                <div class="invalid-feedback">Please select a category.</div>
+            </div>
+
+            <div class="input-group">
                 <label for="price">Price (₹)</label>
                 <input
                     type="number"

@@ -2,9 +2,110 @@
 
 <% block('title', 'Listing') %>
 <% block('head', '<link rel="stylesheet" href="/css/listings.css">') %>
+    
+    <div class="filters-wrapper">
+        <div class="filters-container" id="filters-container">
+            <a href="/listings" class="filter <%= !selectedCategory ? 'active' : '' %>">
+                <i class="fa-solid fa-border-all"></i>
+                <p>All</p>
+            </a>
+            <a href="/listings?category=Trending" class="filter <%= selectedCategory === 'Trending' ? 'active' : '' %>">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </a>
+            <a href="/listings?category=Rooms" class="filter <%= selectedCategory === 'Rooms' ? 'active' : '' %>">
+                <i class="fa-solid fa-bed"></i>
+                <p>Rooms</p>
+            </a>
+            <a href="/listings?category=Iconic Cities" class="filter <%= selectedCategory === 'Iconic Cities' ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain-city"></i>
+                <p>Iconic Cities</p>
+            </a>
+            <a href="/listings?category=Mountains" class="filter <%= selectedCategory === 'Mountains' ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Mountains</p>
+            </a>
+            <a href="/listings?category=Castles" class="filter <%= selectedCategory === 'Castles' ? 'active' : '' %>">
+                <i class="fa-brands fa-fort-awesome"></i>
+                <p>Castles</p>
+            </a>
+            <a href="/listings?category=Amazing Pools" class="filter <%= selectedCategory === 'Amazing Pools' ? 'active' : '' %>">
+                <i class="fa-solid fa-person-swimming"></i>
+                <p>Amazing Pools</p>
+            </a>
+            <a href="/listings?category=Camping" class="filter <%= selectedCategory === 'Camping' ? 'active' : '' %>">
+                <i class="fa-solid fa-campground"></i>
+                <p>Camping</p>
+            </a>
+            <a href="/listings?category=Farms" class="filter <%= selectedCategory === 'Farms' ? 'active' : '' %>">
+                <i class="fa-solid fa-cow"></i>
+                <p>Farms</p>
+            </a>
+            <a href="/listings?category=Arctic" class="filter <%= selectedCategory === 'Arctic' ? 'active' : '' %>">
+                <i class="fa-regular fa-snowflake"></i>
+                <p>Arctic</p>
+            </a>
+            <a href="/listings?category=Domes" class="filter <%= selectedCategory === 'Domes' ? 'active' : '' %>">
+                <i class="fa-solid fa-igloo"></i>
+                <p>Domes</p>
+            </a>
+            <a href="/listings?category=Boats" class="filter <%= selectedCategory === 'Boats' ? 'active' : '' %>">
+                <i class="fa-solid fa-ship"></i>
+                <p>Boats</p>
+            </a>
+        </div>
+    </div>
 
+    <!-- Mobile Filter Dropdown -->
+    <div class="mobile-filter-dropdown">
+        <div class="custom-select-wrapper">
+            <div class="custom-select">
+                <div class="custom-select-trigger">
+                    <span><i class="<%= currentIcon %>"></i> <%= selectedCategory || 'All' %></span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="custom-options">
+                    <a href="/listings" class="custom-option <%= !selectedCategory ? 'selected' : '' %>">
+                        <i class="fa-solid fa-border-all"></i> All
+                    </a>
+                    <a href="/listings?category=Trending" class="custom-option <%= selectedCategory === 'Trending' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-fire"></i> Trending
+                    </a>
+                    <a href="/listings?category=Rooms" class="custom-option <%= selectedCategory === 'Rooms' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-bed"></i> Rooms
+                    </a>
+                    <a href="/listings?category=Iconic Cities" class="custom-option <%= selectedCategory === 'Iconic Cities' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-mountain-city"></i> Iconic Cities
+                    </a>
+                    <a href="/listings?category=Mountains" class="custom-option <%= selectedCategory === 'Mountains' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-mountain"></i> Mountains
+                    </a>
+                    <a href="/listings?category=Castles" class="custom-option <%= selectedCategory === 'Castles' ? 'selected' : '' %>">
+                        <i class="fa-brands fa-fort-awesome"></i> Castles
+                    </a>
+                    <a href="/listings?category=Amazing Pools" class="custom-option <%= selectedCategory === 'Amazing Pools' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-person-swimming"></i> Amazing Pools
+                    </a>
+                    <a href="/listings?category=Camping" class="custom-option <%= selectedCategory === 'Camping' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-campground"></i> Camping
+                    </a>
+                    <a href="/listings?category=Farms" class="custom-option <%= selectedCategory === 'Farms' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-cow"></i> Farms
+                    </a>
+                    <a href="/listings?category=Arctic" class="custom-option <%= selectedCategory === 'Arctic' ? 'selected' : '' %>">
+                        <i class="fa-regular fa-snowflake"></i> Arctic
+                    </a>
+                    <a href="/listings?category=Domes" class="custom-option <%= selectedCategory === 'Domes' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-igloo"></i> Domes
+                    </a>
+                    <a href="/listings?category=Boats" class="custom-option <%= selectedCategory === 'Boats' ? 'selected' : '' %>">
+                        <i class="fa-solid fa-ship"></i> Boats
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1 class="listings-heading">All Listings</h1>
     <div class="listings-container">
         <% listingsData.forEach((listing) => { %>
             <a href="/listings/<%= listing._id %>">
@@ -16,4 +117,24 @@
                 </div>
             </a>
         <% }) %>
-    </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const customSelect = document.querySelector(".custom-select");
+            const customSelectTrigger = document.querySelector(".custom-select-trigger");
+
+            if (customSelectTrigger) {
+                customSelectTrigger.addEventListener("click", () => {
+                    customSelect.classList.toggle("open");
+                });
+
+                // Close when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (!customSelect.contains(e.target)) {
+                        customSelect.classList.remove("open");
+                    }
+                });
+            }
+        });
+    </script>

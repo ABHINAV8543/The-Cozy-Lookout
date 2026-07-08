@@ -12,7 +12,6 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const ExpressError = require("./utils/ExpressError.js");
 const connectDB = require("./config/db.js");
 
 const listingsRouter = require("./routes/listings.js");
@@ -49,39 +48,23 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req, res, next) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
-    res.locals.currPath = req.originalUrl;
-    next();
-});
+const { setLocals, noCache } = require("./utils/middleware.js");
+const homeController = require("./controllers/home.js");
+const errorController = require("./controllers/error.js");
+
+app.use(setLocals);
+app.use(noCache);
 
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is live on port ${port}`);
 });
 
-app.get("/", (req, res) => {
-    res.render("home.ejs");
-});
+app.get("/", homeController.renderHome);
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
-app.use((req, res, next) => {
-    next(new ExpressError(404, "Page Not Found"));
-});
-
-app.use((err, req, res, next) => {
-    if (err.name === 'CastError') {
-        err = new ExpressError(400, "Invalid Listing ID format!");
-    } else if (err.name === 'ValidationError') {
-        err = new ExpressError(400, Object.values(err.errors).map(e => e.message).join(', '));
-    }
-
-    const statusCode = err.status || 500;
-    const message = err.message || "Something went wrong";
-    res.status(statusCode).render("layouts/error.ejs", { error: { status: statusCode, message } });
-});
+app.use(errorController.notFound);
+app.use(errorController.handleError);

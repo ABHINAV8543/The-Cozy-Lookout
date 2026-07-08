@@ -3,8 +3,27 @@ const Review = require("../models/review");
 const User = require("../models/user");
 
 module.exports.index = async (req, res) => {
-    let listingsData = await Listing.find();
-    res.render("listings/index.ejs", { listingsData });
+    const { category } = req.query;
+    let listingsData = category 
+        ? await Listing.find({ category }) 
+        : await Listing.find();
+        
+    const categoryIconMap = {
+        'Trending': 'fa-solid fa-fire',
+        'Rooms': 'fa-solid fa-bed',
+        'Iconic Cities': 'fa-solid fa-mountain-city',
+        'Mountains': 'fa-solid fa-mountain',
+        'Castles': 'fa-brands fa-fort-awesome',
+        'Amazing Pools': 'fa-solid fa-person-swimming',
+        'Camping': 'fa-solid fa-campground',
+        'Farms': 'fa-solid fa-cow',
+        'Arctic': 'fa-regular fa-snowflake',
+        'Domes': 'fa-solid fa-igloo',
+        'Boats': 'fa-solid fa-ship'
+    };
+    let currentIcon = category && categoryIconMap[category] ? categoryIconMap[category] : 'fa-solid fa-border-all';
+
+    res.render("listings/index.ejs", { listingsData, selectedCategory: category, currentIcon });
 };
 
 module.exports.renderNewForm = (req, res) => {

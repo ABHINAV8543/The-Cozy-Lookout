@@ -68,6 +68,25 @@
             </div>
 
             <div class="input-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled style="color: #000;">Select a Category</option>
+                    <option value="Trending" style="color: #000;" <%= listing.category === 'Trending' ? 'selected' : '' %>>Trending</option>
+                    <option value="Rooms" style="color: #000;" <%= listing.category === 'Rooms' ? 'selected' : '' %>>Rooms</option>
+                    <option value="Iconic Cities" style="color: #000;" <%= listing.category === 'Iconic Cities' ? 'selected' : '' %>>Iconic Cities</option>
+                    <option value="Mountains" style="color: #000;" <%= listing.category === 'Mountains' ? 'selected' : '' %>>Mountains</option>
+                    <option value="Castles" style="color: #000;" <%= listing.category === 'Castles' ? 'selected' : '' %>>Castles</option>
+                    <option value="Amazing Pools" style="color: #000;" <%= listing.category === 'Amazing Pools' ? 'selected' : '' %>>Amazing Pools</option>
+                    <option value="Camping" style="color: #000;" <%= listing.category === 'Camping' ? 'selected' : '' %>>Camping</option>
+                    <option value="Farms" style="color: #000;" <%= listing.category === 'Farms' ? 'selected' : '' %>>Farms</option>
+                    <option value="Arctic" style="color: #000;" <%= listing.category === 'Arctic' ? 'selected' : '' %>>Arctic</option>
+                    <option value="Domes" style="color: #000;" <%= listing.category === 'Domes' ? 'selected' : '' %>>Domes</option>
+                    <option value="Boats" style="color: #000;" <%= listing.category === 'Boats' ? 'selected' : '' %>>Boats</option>
+                </select>
+                <div class="invalid-feedback">Please select a category.</div>
+            </div>
+
+            <div class="input-group">
                 <label for="price">Price (₹)</label>
                 <input
                     type="number"

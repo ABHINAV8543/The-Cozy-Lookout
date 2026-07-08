@@ -1,6 +1,9 @@
 const User = require("../models/user");
 
 module.exports.renderSignupForm = (req, res) => {
+    if (req.isAuthenticated()) {
+        return res.redirect("/listings");
+    }
     if (req.query.redirect && req.query.redirect !== '/favicon.ico') {
         req.session.redirectUrl = req.query.redirect;
     }
@@ -27,6 +30,9 @@ module.exports.signup = async (req, res, next) => {
 };
 
 module.exports.renderLoginForm = (req, res) => {
+    if (req.isAuthenticated()) {
+        return res.redirect("/listings");
+    }
     if (req.query.redirect && req.query.redirect !== '/favicon.ico') {
         req.session.redirectUrl = req.query.redirect;
     }
@@ -34,7 +40,6 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-    req.flash("success", "Welcome back to The Cozy Lookout!");
     let redirectUrl = res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
 };

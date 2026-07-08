@@ -5,7 +5,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 85000,
         location: "Lake Como, Lombardy, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Domes"
     },
     {
         title: "Azure Pool House Luxury Stay",
@@ -13,7 +14,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 32000,
         location: "Male, Maldives",
-        country: "Maldives"
+        country: "Maldives",
+        category: "Arctic"
     },
     {
         title: "Finale Mansion Estate & Gardens",
@@ -21,7 +23,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2016/08/25/21/38/home-1620736_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 125000,
         location: "Newport, Rhode Island, United States",
-        country: "United States"
+        country: "United States",
+        category: "Mountains"
     },
     {
         title: "Portofino Sea View Cliffside Villa",
@@ -29,7 +32,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2020/02/11/12/07/portofino-4839356_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 41000,
         location: "Portofino, Liguria, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Castles"
     },
     {
         title: "Alpine Mountain Village Chalet",
@@ -37,7 +41,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2022/03/20/11/04/mountains-7080595_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 27500,
         location: "Zermatt, Valais, Switzerland",
-        country: "Switzerland"
+        country: "Switzerland",
+        category: "Amazing Pools"
     },
     {
         title: "Dream Villa Mediterranean Escape",
@@ -45,7 +50,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2013/10/12/18/05/villa-194671_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 24500,
         location: "Chania, Crete, Greece",
-        country: "Greece"
+        country: "Greece",
+        category: "Iconic Cities"
     },
     {
         title: "Abandoned Ruins Historical Experience",
@@ -53,7 +59,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/09/17/18/15/lost-places-2759275_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 8900,
         location: "Siena, Tuscany, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Trending"
     },
     {
         title: "Tropical Outdoor Villa with Private Deck",
@@ -61,7 +68,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/03/30/00/24/villa-2186912_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 15600,
         location: "Ubud, Bali, Indonesia",
-        country: "Indonesia"
+        country: "Indonesia",
+        category: "Rooms"
     },
     {
         title: "Overwater Shack in Paradise",
@@ -69,7 +77,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2019/12/18/10/02/maldives-4703551_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 45000,
         location: "Baa Atoll, Maldives",
-        country: "Maldives"
+        country: "Maldives",
+        category: "Camping"
     },
     {
         title: "Grand Park Architecture Home",
@@ -77,7 +86,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2018/06/05/02/22/villa-3454616_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 38000,
         location: "Richmond, London, United Kingdom",
-        country: "United Kingdom"
+        country: "United Kingdom",
+        category: "Trending"
     },
     {
         title: "Villa Borghese Romantic Getaway",
@@ -85,7 +95,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 12400,
         location: "Rome, Lazio, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Rooms"
     },
     {
         title: "Modern Residence Property w/ Garden",
@@ -93,7 +104,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 21000,
         location: "Vancouver, British Columbia, Canada",
-        country: "Canada"
+        country: "Canada",
+        category: "Rooms"
     },
     {
         title: "Classic Mansion Heritage Stay",
@@ -101,7 +113,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 67000,
         location: "Charleston, South Carolina, United States",
-        country: "United States"
+        country: "United States",
+        category: "Castles"
     },
     {
         title: "Bulgaria Apartment Complex Penthouse",
@@ -109,7 +122,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_640.jpg", filename: "listingimage" }, //[cite: 2]
         price: 6800,
         location: "Sofia, Bulgaria",
-        country: "Bulgaria"
+        country: "Bulgaria",
+        category: "Arctic"
     },
     {
         title: "Illustration Concept Art House",
@@ -117,7 +131,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 18900,
         location: "Kyoto, Kansai, Japan",
-        country: "Japan"
+        country: "Japan",
+        category: "Amazing Pools"
     },
     {
         title: "Bali Nature Reserve Villa",
@@ -125,7 +140,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 12500,
         location: "Ubud, Bali, Indonesia",
-        country: "Indonesia"
+        country: "Indonesia",
+        category: "Boats"
     },
     {
         title: "Illuminated Waterfront Mansion",
@@ -133,7 +149,8 @@ let listings = [
         image: { url: "https://media.istockphoto.com/id/503044702/photo/illuminated-sky-and-outside-of-waterfront-buiding.jpg", filename: "listingimage" }, //[cite: 2]
         price: 85000,
         location: "Miami, Florida, United States",
-        country: "United States"
+        country: "United States",
+        category: "Castles"
     },
     {
         title: "Modern Multilevel Oasis w/ Pool",
@@ -141,7 +158,8 @@ let listings = [
         image: { url: "https://media.istockphoto.com/id/909423306/photo/modern-multilevel-house-exterior-with-pool.jpg", filename: "listingimage" }, //[cite: 2]
         price: 34000,
         location: "Camps Bay, Cape Town, South Africa",
-        country: "South Africa"
+        country: "South Africa",
+        category: "Arctic"
     },
     {
         title: "Two-Story Sea View Villa",
@@ -149,7 +167,8 @@ let listings = [
         image: { url: "https://media.istockphoto.com/id/1424381465/photo/modern-villa-with-two-floors-overlooking-sea.jpg", filename: "listingimage" }, //[cite: 2]
         price: 42000,
         location: "Amalfi Coast, Campania, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Rooms"
     },
     {
         title: "Upscale Modern Mansion",
@@ -157,7 +176,8 @@ let listings = [
         image: { url: "https://media.istockphoto.com/id/1150545984/photo/upscale-modern-mansion-with-pool.jpg", filename: "listingimage" }, //[cite: 2]
         price: 110000,
         location: "Palm Jumeirah, Dubai, United Arab Emirates",
-        country: "United Arab Emirates"
+        country: "United Arab Emirates",
+        category: "Trending"
     },
     {
         title: "Historic Villa Borghese",
@@ -165,7 +185,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2014/11/19/15/36/villa-borghese-537944_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 34000,
         location: "Rome, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Rooms"
     },
     {
         title: "Sunset Residence Property",
@@ -173,7 +194,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 45000,
         location: "Malibu, California, United States",
-        country: "United States"
+        country: "United States",
+        category: "Camping"
     },
     {
         title: "Classical White Mansion",
@@ -181,7 +203,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2013/05/31/23/49/villa-115191_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 32000,
         location: "Savannah, Georgia, United States",
-        country: "United States"
+        country: "United States",
+        category: "Iconic Cities"
     },
     {
         title: "Varna Poolside Resort Apartment",
@@ -189,7 +212,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/02/25/18/31/bulgaria-2098435_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 5400,
         location: "Varna, Bulgaria",
-        country: "Bulgaria"
+        country: "Bulgaria",
+        category: "Amazing Pools"
     },
     {
         title: "Contemporary Villa Facade",
@@ -197,7 +221,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2022/07/05/15/01/villa-7303286_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 18500,
         location: "Austin, Texas, United States",
-        country: "United States"
+        country: "United States",
+        category: "Castles"
     },
     {
         title: "Jungle Nature Villa Retreat",
@@ -205,7 +230,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2017/06/07/05/10/bali-2379363_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 11200,
         location: "Uluwatu, Bali, Indonesia",
-        country: "Indonesia"
+        country: "Indonesia",
+        category: "Amazing Pools"
     },
     {
         title: "Balbiano Grand Estate",
@@ -213,7 +239,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2021/04/05/18/02/villa-balbiano-6154200_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 98000,
         location: "Florence, Tuscany, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Rooms"
     },
     {
         title: "Luxury Architectural Estate",
@@ -221,7 +248,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2020/06/25/10/21/architecture-5339245_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 89000,
         location: "Miami Beach, Florida, United States",
-        country: "United States"
+        country: "United States",
+        category: "Boats"
     },
     {
         title: "Serene Pool House Stay",
@@ -229,7 +257,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2020/04/17/12/28/pool-5055009_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 26000,
         location: "Mykonos, South Aegean, Greece",
-        country: "Greece"
+        country: "Greece",
+        category: "Amazing Pools"
     },
     {
         title: "Monza Historic Park Villa",
@@ -237,7 +266,8 @@ let listings = [
         image: { url: "https://cdn.pixabay.com/photo/2019/11/19/17/56/villa-real-4638107_1280.jpg", filename: "listingimage" }, //[cite: 2]
         price: 31000,
         location: "Milan, Lombardy, Italy",
-        country: "Italy"
+        country: "Italy",
+        category: "Camping"
     }
 ];
 

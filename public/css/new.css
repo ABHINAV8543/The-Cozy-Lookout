@@ -34,7 +34,8 @@
 }
 
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+.input-group select {
     background: #222222;
     border: 1px solid #333333;
     border-radius: 10px;
@@ -46,7 +47,8 @@
 }
 
 .input-group input:focus,
-.input-group textarea:focus {
+.input-group textarea:focus,
+.input-group select:focus {
     border-color: #ff4d8d;
     box-shadow: 0 0 10px rgba(255, 77, 141, 0.25);
 }
@@ -83,18 +85,21 @@
 }
 
 .was-validated input:invalid,
-.was-validated textarea:invalid {
+.was-validated textarea:invalid,
+.was-validated select:invalid {
     border-color: #ef4444;
     background-color: rgba(239, 68, 68, 0.05);
 }
 
 .was-validated input:invalid:focus,
-.was-validated textarea:invalid:focus {
+.was-validated textarea:invalid:focus,
+.was-validated select:invalid:focus {
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
 }
 
 .was-validated input:invalid ~ .invalid-feedback,
-.was-validated textarea:invalid ~ .invalid-feedback {
+.was-validated textarea:invalid ~ .invalid-feedback,
+.was-validated select:invalid ~ .invalid-feedback {
     display: block;
 }
 

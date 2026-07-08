@@ -9,6 +9,8 @@ const listingSchema = Joi.object({
 
     country : Joi.string().required(),
 
+    category: Joi.string().valid("Trending", "Rooms", "Iconic Cities", "Mountains", "Castles", "Amazing Pools", "Camping", "Farms", "Arctic", "Domes", "Boats").required(),
+
     image: Joi.object({
         url: Joi.string().required(),
         filename: Joi.string().required()

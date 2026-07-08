@@ -90,3 +90,17 @@ module.exports.uploadListingImage = (req, res, next) => {
     );
     stream.end(req.file.buffer);
 }
+
+module.exports.setLocals = (req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
+    res.locals.currPath = req.originalUrl;
+    next();
+};
+
+// Disable HTTP caching on all pages
+module.exports.noCache = (req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    next();
+};
