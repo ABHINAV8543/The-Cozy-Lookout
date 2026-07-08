@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "Abhinav Anand",
   "license": "ISC",
+  "engines": {
+    "node": "22.19.0"
+  },
   "dependencies": {
     "cloudinary": "^2.10.0",
     "connect-flash": "^0.1.1",
