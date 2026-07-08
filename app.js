@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.engine("ejs", ejsMate);
 
-const sessionOptions = require("./config/session.js");
+const { sessionOptions } = require("./config/session.js");
 
 app.use(session(sessionOptions));
 app.use(flash());
