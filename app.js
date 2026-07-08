@@ -27,16 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.engine("ejs", ejsMate);
 
-const sessionOptions = {
-    secret: "mysupersecretcode",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
-    }
-};
+const sessionOptions = require("./config/session.js");
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -63,7 +54,9 @@ app.listen(port, () => {
 app.get("/", homeController.renderHome);
 
 app.use("/listings", listingsRouter);
+
 app.use("/listings/:id/reviews", reviewsRouter);
+
 app.use("/", userRouter);
 
 app.use(errorController.notFound);
