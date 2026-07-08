@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
 const User = require("../models/user.js");
