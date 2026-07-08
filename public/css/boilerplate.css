@@ -11,6 +11,7 @@ body {
     color: #ffffff;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 .main-content {

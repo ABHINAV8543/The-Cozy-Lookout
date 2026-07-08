@@ -89,34 +89,10 @@
     padding: 100px 20px;
     background: #0d0d0d;
     position: relative;
+    overflow: hidden;
 }
 
-/* Abstract glowing orbs behind features */
-.features-section::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 77, 141, 0.15);
-    border-radius: 50%;
-    filter: blur(100px);
-    z-index: 0;
-}
 
-.features-section::after {
-    content: '';
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 50%;
-    filter: blur(100px);
-    z-index: 0;
-}
 
 .features-grid {
     display: grid;
