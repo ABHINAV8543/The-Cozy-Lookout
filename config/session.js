@@ -1,14 +1,15 @@
 const MongoStore = require("connect-mongo").default;
 
-let dbURL = process.env.ATLAS_URL || "mongodb://localhost:27017/the-cozy-lookout";
+let dbURL = process.env.ATLAS_URL;
+let secret = process.env.SECRET;
 
 module.exports.sessionOptions = {
     store: MongoStore.create({
         mongoUrl: dbURL,
-        secret: "mysupersecretcode",
+        secret: secret,
         touchAfter: 24 * 60 * 60
     }),
-    secret: "mysupersecretcode",
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {

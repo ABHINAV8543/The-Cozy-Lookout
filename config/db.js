@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let dbURL = process.env.ATLAS_URL || "mongodb://localhost:27017/the-cozy-lookout";
+let dbURL = process.env.ATLAS_URL;
 
 async function connectDB() {
     try {
